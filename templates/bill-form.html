@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Generate Bill</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <style type="text/css" media="all">
+    body:{
+      height: 100%;
+      width: 100%;
+      display: block;
+    }
+    .form-field-container{
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      
+    }
+    .form-field-container label{
+      min-width: 150px;
+    }
+    
+  </style>
+  <body>
+<div class="container" style="height:100vh;width:100%;display:flex;flex-direction:column; align-items:center;justify-content:center">
+    <form action='/get-bill/' method='GET'>
+  <div class="form-field-container">
+    <label>
+      Distance Travel<span style='color:red'>*</span>: 
+    </label>
+    <input type="number" name='distance'/>
+    {% if showDistanceErr %}
+    <span style='color:red;margin-left:5px'>Please Enter Distance</span>
+    {% endif %}
+  </div>
+  <div class="form-field-container">
+    <label>
+      Time Taken<span style='color:red'>*</span>: 
+    </label>
+    <input type="number" name='time'/>
+    {% if showTimeErr %}
+    <span style='color:red;margin-left:5px'>Please Enter Time</span>
+    {% endif %} 
+  </div>
+  <button type="submit" style="margin-top:10px">Generate Bill</button>
+    <div style="margin-top:20px">
+  <a href="/admin" >Add and View Config</a>
+    </div>
+</form>
+</div>
+  </body>
+</html>

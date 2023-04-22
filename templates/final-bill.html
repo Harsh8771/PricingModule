@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Bill</title>
+    
+  </head>
+  <body>
+    <div style="height:100vh;width:100%;display:flex;flex-direction:column; align-items:center;justify-content:center">
+      {% if dataAvailable %}
+      <div style='display:flex; align-items:center;min-width:300'>
+        <h3>
+          Final Price:
+        </h3>
+        <h4>{{ price}}</h4>
+      </div>
+      <div style='display:flex; align-items:center;min-width:300'>
+        <h3>
+          Distance Base Price Taken:
+        </h3>
+        <h4>{{ distanceBasePrice }}</h4>
+      </div>
+      <div style='display:flex; align-items:center;min-width:300'>
+        <h3>
+          Distance Additional Price Taken:
+        </h3>
+        <h4>{{distanceAdditionalPrice}}</h4>
+      </div>
+      <div style='display:flex; align-items:center;min-width:300'>
+        <h3>
+          Time Multiplier Factor:
+        </h3>
+        <h4>{{timeMultiplierFactor}}</h4>
+      </div>      
+      {% elif noMatchingFound %}
+        <div><h3> No matching pricing configuration found.</h3></div>        
+        {% else %}
+        <div><h3> Pricing is not available at this time</h3></div>
+        {% endif%}
+        <div>
+            <a href="/" >Generate Other Bill</a>
+        </div>
+        <div>
+            <a href="/admin" >Add and View Config</a>
+        </div>
+    </div>
+  </body>
+</html>
